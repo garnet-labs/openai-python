@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.32.0 (2026-04-10)
+
+Full Changelog: [v2.31.0...v2.32.0](https://github.com/openai/openai-python/compare/v2.31.0...v2.32.0)
+
+### Features
+
+* **api:** Add detail to InputFileContent ([60de21d](https://github.com/openai/openai-python/commit/60de21d1fcfbcadea0d9b8d884c73c9dc49d14ff))
+* **api:** add OAuthErrorCode type ([0c8d2c3](https://github.com/openai/openai-python/commit/0c8d2c3b44242c9139dc554896ea489b56e236b8))
+* **client:** support reconnection in websockets ([eb72a95](https://github.com/openai/openai-python/commit/eb72a953ea9dc5beec3eef537be6eb32292c3f65))
+
 ## 2.31.0 (2026-04-08)
 
 Full Changelog: [v2.30.0...v2.31.0](https://github.com/openai/openai-python/compare/v2.30.0...v2.31.0)
