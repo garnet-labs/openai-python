@@ -1,0 +1,30 @@
+name: Linux validation
+
+on:
+  push:
+    branches: [ci-linux-validation]
+
+permissions: {}
+
+jobs:
+  validation:
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: "actions/checkout@v6"
+        with:
+          persist-credentials: false
+      - uses: "garnet-org/action@v2.6.0"
+      - name: "Set up Rye"
+        run: |
+          curl -sSf https://rye.astral.sh/get | RYE_VERSION=0.44.0 RYE_INSTALL_OPTION=--yes bash
+          echo "$HOME/.rye/shims" >> "$GITHUB_PATH"
+      - name: "Install dependencies"
+        run: |
+          ./scripts/bootstrap
+      - name: "Run checks"
+        run: |
+          DEFER_PYDANTIC_BUILD=false rye run pytest tests/test_qs.py tests/test_transform.py tests/test_models.py
